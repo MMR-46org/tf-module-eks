@@ -52,6 +52,10 @@ resource "aws_eks_node_group" "main" {
     max_size     = each.value["size"] + 5
     min_size     = each.value["size"]
   }
+
+  tags  =  {
+    Name = "${local.name}-${each.key}-ng"
+  }
 }
 
 
