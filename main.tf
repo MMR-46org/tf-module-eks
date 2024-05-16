@@ -113,7 +113,14 @@ resource "aws_iam_policy" "node-extra-policy" {
           "ssm:GetParameters",
           "ssm:GetParameter",
           "kms:Decrypt",
-          "route53:*"
+          "route53:*",
+          "autoscaling:DescribeAutoScalingGroups",
+          "autoscaling:DescribeAutoScalingInstances",
+          "autoscaling:DescribeLaunchConfigurations",
+          "autoscaling:DescribeScalingActivities",
+          "autoscaling:SetDesiredCapacity",
+          "autoscaling:TerminateInstanceInAutoScalingGroup",
+          "eks:DescribeNodegroup"
         ],
         "Resource": "*"
       }
