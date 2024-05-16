@@ -120,7 +120,8 @@ resource "aws_iam_policy" "node-extra-policy" {
           "autoscaling:DescribeScalingActivities",
           "autoscaling:SetDesiredCapacity",
           "autoscaling:TerminateInstanceInAutoScalingGroup",
-          "eks:DescribeNodegroup"
+          "eks:DescribeNodegroup",
+          "ec2:DescribeLaunchTemplateVersions"
         ],
         "Resource": "*"
       }
