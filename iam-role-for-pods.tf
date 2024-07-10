@@ -1,5 +1,5 @@
 resource "aws_iam_role" "external-dns" {
-  name = "${local.name}-node-role"
+  name = "${local.name}-pod-role-for-external-dns"
 
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
