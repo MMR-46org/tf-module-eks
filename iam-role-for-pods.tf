@@ -71,7 +71,7 @@ resource "aws_iam_role" "cluster-autoscaler" {
       "Version" : "2012-10-17",
       "Statement" : [
         {
-          "Sid" : "Cluster-Autoscaler",
+          "Sid" : "ClusterAutoscaler",
           "Effect" : "Allow",
           "Action" : [
             "autoscaling:DescribeAutoScalingGroups",
@@ -127,7 +127,7 @@ resource "aws_iam_role" "app-ssm-parameters" {
       "Version" : "2012-10-17",
       "Statement" : [
         {
-          "Sid" : "app-ssm",
+          "Sid" : "APPSSM",
           "Effect" : "Allow",
           "Action" : [
             "ssm:DescribeParameters",
