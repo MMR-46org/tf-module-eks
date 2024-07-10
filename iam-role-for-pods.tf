@@ -13,7 +13,7 @@ resource "aws_iam_role" "external-dns" {
         "Condition" : {
           "StringEquals" : {
             "oidc.eks.us-east-1.amazonaws.com/id/FBA241A425D6D800CF4C41C2CA678CFC:aud" : "sts.amazonaws.com"
-            "oidc.eks.us-east-1.amazonaws.com/id/FBA241A425D6D800CF4C41C2CA678CFC:aud" : "system:serviceaccount:default:external-dns"
+            "oidc.eks.us-east-1.amazonaws.com/id/FBA241A425D6D800CF4C41C2CA678CFC:sub" : "system:serviceaccount:default:external-dns"
 
           }
         }
