@@ -98,7 +98,7 @@ variable "components" {
 
 resource "aws_iam_role" "app-ssm-parameters" {
   count  = length(var.components)
-  name = "${local.name}-pod-role-for-${var.component[count.index]}-ssm-parameters"
+  name = "${local.name}-pod-role-for-${var.components[count.index]}-ssm-parameters"
 
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
@@ -112,7 +112,7 @@ resource "aws_iam_role" "app-ssm-parameters" {
         "Condition" : {
           "StringEquals" : {
             "oidc.eks.us-east-1.amazonaws.com/id/${local.cluster_issuer_id}:aud" : "sts.amazonaws.com"
-            "oidc.eks.us-east-1.amazonaws.com/id/${local.cluster_issuer_id}:sub" : "system:serviceaccount:default:${var.component[count.index]}"
+            "oidc.eks.us-east-1.amazonaws.com/id/${local.cluster_issuer_id}:sub" : "system:serviceaccount:default:${var.components[count.index]}"
 
           }
         }
@@ -121,7 +121,7 @@ resource "aws_iam_role" "app-ssm-parameters" {
   })
 
   inline_policy {
-    name = "${var.component[count.index]}-parameter-store"
+    name = "${var.components[count.index]}-parameter-store"
 
     policy = jsonencode({
       "Version" : "2012-10-17",
